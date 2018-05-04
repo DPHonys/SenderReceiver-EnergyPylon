@@ -1,0 +1,131 @@
+function cfg()
+	local cfgExists = fs.exists("cfg/config")
+
+	if cfgExists == false then 
+		term.clear()
+		term.setCursorPos(1, 1)
+		print("Creating config...")
+		print(" ")
+		function modemlocation()
+			print("On what side is modem?")
+			print("(left/right/top/bottom/front/back)")
+			modemLocation = read()
+				if modemLocation == "left" or
+					modemLocation == "right" or
+					modemLocation == "top" or
+					modemLocation == "bottom" or
+					modemLocation == "front" or
+					modemLocation == "back" 
+				then
+					local maxwrite = fs.open("cfg/modem", "w")
+		  			maxwrite.writeLine(string.format("%s", modemLocation))
+		  			maxwrite.close()
+				else
+					term.setTextColor(colors.red)
+					print("ERROR - wrong answer")
+					term.setTextColor(colors.white)
+					print(" ")
+					modemlocation()
+				end
+		end
+		modemlocation()
+
+		function test()
+			if pylonLocation == modemLocation then
+				term.setTextColor(colors.red)
+				print("ERROR - the pylon cant be on same side like modem...")
+				term.setTextColor(colors.white)
+				print(" ")
+				pylonlocation()
+			end
+		end
+
+		term.clear()
+		term.setCursorPos(1, 1)
+		print("Creating config...")
+		print(" ")
+		function pylonlocation()
+			print("On what side is pylon?")
+			print("(left/right/top/bottom/front/back)")
+			pylonLocation = read()
+				if pylonLocation == "left" or
+					pylonLocation == "right" or
+					pylonLocation == "top" or
+					pylonLocation == "bottom" or
+					pylonLocation == "front" or
+					pylonLocation == "back" 
+				then
+					test()
+					local maxwrite = fs.open("cfg/pylon", "w")
+		  			maxwrite.writeLine(string.format("%s", pylonLocation))
+		  			maxwrite.close()
+				else
+					term.setTextColor(colors.red)
+					print("ERROR - wrong answer")
+					term.setTextColor(colors.white)
+					print(" ")
+					pylonlocation()
+				end
+		end
+		pylonlocation()
+
+		term.clear()
+		term.setCursorPos(1, 1)
+		print("Creating config...")
+		print(" ")
+		function channelformax()
+			print("Channel for Max?")
+			print("(number from 1 to 55555)")
+			channelForMax = tonumber(read())
+				if channelForMax < 1 or channelForMax > 55555 then
+					term.setTextColor(colors.red)
+					print("ERROR - wrong answer")
+					term.setTextColor(colors.white)
+					print(" ")
+					channelformax()
+				else
+		  			local maxwrite = fs.open("cfg/Max", "w")
+		  			maxwrite.writeLine(string.format("%s", channelForMax))
+		  			maxwrite.close()
+				end		
+		end
+		channelformax()
+
+		function test2()
+			if channelForStored == channelForMax then
+				term.setTextColor(colors.red)
+				print("ERROR - channel for stored cant be the same as channel for max...")
+				term.setTextColor(colors.white)
+				print(" ")
+				channelforstroed()
+			end
+		end
+
+		term.clear()
+		term.setCursorPos(1, 1)
+		print("Creating config...")
+		print(" ")
+		function channelforstroed()
+			print("Channel for Stored?")
+			print("(number from 1 to 55555)")
+			channelForStored = tonumber(read())
+				if channelForStored < 1 or channelForStored > 55555 then
+					term.setTextColor(colors.red)
+					print("ERROR - wrong answer")
+					term.setTextColor(colors.white)
+					print(" ")
+					channelforstroed()
+				else
+					test2()
+		  			local maxwrite = fs.open("cfg/Stored", "w")
+		  			maxwrite.writeLine(string.format("%s", channelForStored))
+		  			maxwrite.close()
+				end		
+		end
+		channelforstroed()
+
+		local maxwrite = fs.open("cfg/config", "w")
+		maxwrite.close()
+	else
+	end
+end

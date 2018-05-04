@@ -1,0 +1,3 @@
+function sleep()
+ os.sleep(0.1)
+end
