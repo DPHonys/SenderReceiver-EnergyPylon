@@ -77,7 +77,7 @@ modem.open(storedchannel3) --STORED
 
 function send()
     while true do --LOOP
-      local pylon = peripheral.wrap("left")
+      local pylon = pylonposition
         local stored = pylon.getEnergyStored()
         local max = pylon.getMaxEnergyStored()
         print(stored)
