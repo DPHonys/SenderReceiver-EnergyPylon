@@ -57,7 +57,7 @@ And then executing this file with
 ![](Photos/Receiver.jpg)
 > *Folder of the Receiver*
 
-#### First execute and setup
+#### First execution and setup
 ```
 > EnergyPylonSender
 ```
