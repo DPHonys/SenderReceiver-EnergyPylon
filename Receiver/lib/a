@@ -97,7 +97,7 @@ function cfg()
 				print("ERROR - channel for stored cant be the same as channel for max...")
 				term.setTextColor(colors.white)
 				print(" ")
-				channelforstroed()
+				channelforstored()
 			end
 		end
 
@@ -105,7 +105,7 @@ function cfg()
 		term.setCursorPos(1, 1)
 		print("Creating config...")
 		print(" ")
-		function channelforstroed()
+		function channelforstored()
 			print("Channel for Stored?")
 			print("(number from 1 to 55555)")
 			channelForStored = tonumber(read())
@@ -114,7 +114,7 @@ function cfg()
 					print("ERROR - wrong answer")
 					term.setTextColor(colors.white)
 					print(" ")
-					channelforstroed()
+					channelforstored()
 				else
 					test2()
 		  			local maxwrite = fs.open("cfg/Stored", "w")
@@ -122,7 +122,7 @@ function cfg()
 		  			maxwrite.close()
 				end		
 		end
-		channelforstroed()
+		channelforstored()
 
 		term.clear()
 		term.setCursorPos(1, 1)
