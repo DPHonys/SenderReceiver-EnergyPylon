@@ -11,9 +11,9 @@ so this script written in LUA for ComputerCraft is made for monitoring stored en
 
 > *DISCLAIMER*: One library I am using isn't written by me... Its written by acidjazz - https://github.com/acidjazz.
 
-### Feature
+### Features
 - Configuration script
- 	- both programs „EnergyPylonSender“ and „EnergyPylonReceiver“ contain a script which will automatically run on the first time of running the programs, that script will let you configure the position of the Pylon/Monitor and channels for data transfer
+ 	- both programs „EnergyPylonSender“ and „EnergyPylonReceiver“ contain a script which will automatically run on the first time of running these programs, that script will let you configure the position of the Pylon/Monitor and channels for data transfer
 ![](Photos/Questions.jpg)
  	- the Configuration script of „EnergyPylonReceiver“ also contains the possibility to display the stored Energy in the kEU
 ![](Photos/EU.jpg)
